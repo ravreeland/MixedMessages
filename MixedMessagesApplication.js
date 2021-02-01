@@ -75,11 +75,15 @@ const endingHookPhrase = () => {
     return endingHookArray[randomIndex];
 }
 
-for (let i = 0; i<30; i++){
-    console.log(randomAnnouncementWords());
-    console.log(catchyMiddleSubject());
-    console.log(endingHookPhrase());
+
+const runMessageApp = () => {
+    const firstPart = randomAnnouncementWords();
+    const middlePart = catchyMiddleSubject();
+    const thirdPart = endingHookPhrase();
+    return firstPart + " " + middlePart + " " + thirdPart;
 }
 
+
+console.log(runMessageApp());
 
 
