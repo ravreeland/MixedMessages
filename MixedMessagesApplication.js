@@ -63,6 +63,7 @@ const endingHookPhrase = () => {
         "click here to read more.",
         "for $6.66 a month, you can read the full article, and other related content.",
         "please enjoy reading more...after these ads.",
+        "to find out how to help them get out, reset the machine please!",
         "leave if you don't want to learn how, read on to find out how.",
         "the details will shock you.",
         "numer 6 will break your heart.",
