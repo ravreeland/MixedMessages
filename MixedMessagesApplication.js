@@ -1,90 +1,70 @@
 
-const randomAnnouncementWords = () => {
+
+
+
+const floridamanDate = () => {
     // This will be the first piece of random data
-    // Function will return a random intro head line
+    // Function will return <random date>: Florida man
+    let randomDay = Math.ceil(Math.random()*30); // Should return random number between 1 - 30; 
+    const randomMonthArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const randomMonth = randomMonthArray[Math.floor(Math.random()*randomMonthArray.length)];
+    if ((randomMonth==="February") && (randomDay>28)){
+        randomDay = 28; //Since Feb only has 28 days (excluding leap years), resassigning any day greater than 28 to 28.
+    }
+    const todayDate = new Date();
+    const randomYear = todayDate.getFullYear() - Math.floor(Math.random()*21); //get random year going back 20 years
 
-    const headLineArray = [ 
-        "EXTRA EXTRA!",
-        "HERE HERE!",
-        "Come one, come all!",
-        "Hear Ye! Hear Ye!",
-        "Oyez Oyez Oyez!",
-        "Hark!",
-        "Lo!",
-        "Behold!",
-        "Listen!",
-        "Gather 'round!",
-        "Listen, n gather 'round!",
-        "Come and look!",
-        "Newsflash!"
-    ]
-    const randomIndex = Math.floor(Math.random()*headLineArray.length);
-    return headLineArray[randomIndex];
+    return `${randomMonth} ${randomDay}, ${randomYear}: Florida man`;
 }
 
-const catchyMiddleSubject= () => {
-    const middleSubjectArray = [
-        "Superman saves plane from crashing,",
-        "Superman kills Luis Lane,",
-        "Crazy man in bat costume thinks reporter is superman,",
-        "Billionaire thinks he has more money than a millionaire,",
-        "Zoo lion escapes and eats icecream,",
-        "Local Florida man in crocodile hat tries to get in crocodile pen,",
-        "Aliens have been found, and are currently taking control over the earth,",
-        "Florida has officially declared being a 'Florida man' is illegal,",
-        "Local woman walks around with a murder of crows, and burns down the patriarchy,",
-        "Naboo politician makes the snarky remark of 'democracy dying to thunderous applause',",
-        "Emperor who 'loves democracy' gets rid of senate,",
-        "Hello there. General Kenobi. You are a bold one,",
-        "Newly appointed Lord chastizes Imperial officer, proceeds to choke him,",
-        "News reporter finds themselves trapped in program,",
-        "Oil executive declares 'war on oil' to increase gas prices,",
-        "First man decides bones are delicious,",
-        "Super powers are now available to trade and buy,",
-        "Separatist sympathic Jedi traitors' temple was stormed by loyal clones,",
-        "Here is a list of 15 AMAZING features of gadgets you totally knew about,"
+const floridamanAction= () => {
+    const action = [
+       "arrested for",
+       "chewed off",
+       "trapped in",
+       "killed by",
+       "tried to",
+       "insisted on",
+       "protected car from",
+       "fought",
+       "bit",
+       "busted",
+       "caught"
+
     ]
-    const randomIndex = Math.floor(Math.random()*middleSubjectArray.length);
-    return middleSubjectArray[randomIndex];
+    const randomIndex = Math.floor(Math.random()*action.length);
+    return action[randomIndex];
 }
 
-const endingHookPhrase = () => {
-    const endingHookArray = [
-        "read on to find out more.",
-        "continue on page 66.",
-        "continue reading to learn more.",
-        "find out more by clicking on link.",
-        "you'd hate to learn how they did it.",
-        "scroll down for more info.",
-        "for more info, scroll through our ad-ridden, pointlessly expanded story.",
-        "to be continued.",
-        "to continue, add in more coins.",
-        "read the whole article, by selling your soul to us.",
-        "click here to read more.",
-        "for $6.66 a month, you can read the full article, and other related content.",
-        "please enjoy reading more...after these ads.",
-        "to find out how to help them get out, reset the machine please!",
-        "leave if you don't want to learn how, read on to find out how.",
-        "the details will shock you.",
-        "numer 6 will break your heart.",
-        "listen on tonights show to find out more.",
-        "wait for next article to figure out how.",
-        "please give us money to deliver hundreds of ads directly to your brain stem."
+
+const floridamanTarget = () => {
+    const target = [
+        "calling 911 after kitten denied entry into strip club.",
+        "another man’s face.",
+        "fighting drag queen with tiki torch runs for mayor",
+        "unlocked closet for two days",
+        "alligator while hiding from cops",
+        "steal rack of ribs by stashing it in his pants",
+        "Hurricane Dorian by parking it in kitchen",
+        "trying to get alligator drunk",
+        "evading arrest by cartwheeling away from cops"
     ]
-    const randomIndex = Math.floor(Math.random()*endingHookArray.length);
+    const randomIndex = Math.floor(Math.random()*target.length);
     
-    return endingHookArray[randomIndex];
+    return target[randomIndex];
 }
 
 
 const runMessageApp = () => {
-    const firstPart = randomAnnouncementWords();
-    const middlePart = catchyMiddleSubject();
-    const thirdPart = endingHookPhrase();
+    const firstPart = floridamanDate();
+    const middlePart = floridamanAction();
+    const thirdPart = floridamanTarget();
     return firstPart + " " + middlePart + " " + thirdPart;
 }
 
+for (let i = 0; i< 30; i++){
+    console.log(runMessageApp());
+}
 
-console.log(runMessageApp());
 
 
